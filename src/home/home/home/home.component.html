@@ -1,6 +1,20 @@
 <div>
-    <h1>Signals and Effects Demo</h1>
-    <p>Full Name: {{ signalService.fullName() }}</p>
-    <p>Is Adult: {{ signalService.isAdult() }}</p>
-    <button (click)="updateValues()">Update Values</button>
-  </div>
+  <h1>Signals and Effects Demo</h1>
+  <form (ngSubmit)="updateValues()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" [(ngModel)]="firstName" name="firstName" required />
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" [(ngModel)]="lastName" name="lastName" required />
+    </div>
+    <div>
+      <label for="age">Age:</label>
+      <input id="age" type="number" [(ngModel)]="age" name="age" required />
+    </div>
+    <button type="submit">Update Values</button>
+  </form>
+  <p>Full Name: {{ signalService.fullName() }}</p>
+  <p>Is Adult: {{ signalService.isAdult() }}</p>
+</div>

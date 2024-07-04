@@ -8,11 +8,22 @@ import { SignalService } from '../../../services/signal.service';
 })
 export class HomeComponent {
   title = 'signals-project';
-  constructor(public signalService: SignalService) {}
+
+  firstName: string;
+  lastName: string;
+  age: number;
+
+  constructor(public signalService: SignalService) {
+    // Initialize form fields with the current signal values
+    this.firstName = this.signalService.firstName();
+    this.lastName = this.signalService.lastName();
+    this.age = this.signalService.age();
+  }
 
   // Method to update values
   updateValues() {
-    this.signalService.updateValues('Jane', 'Smith', 25);
+    this.signalService.updateValues(this.firstName, this.lastName, this.age);
   }
 }
+
 
