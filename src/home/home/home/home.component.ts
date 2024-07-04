@@ -13,6 +13,13 @@ export class HomeComponent {
   lastName: string;
   age: number;
 
+  results = [
+    { property: 'Full Name', value: '' },
+    { property: 'Is Adult', value: '' }
+  ];
+  displayedColumns: string[] = ['property', 'value'];
+
+
   constructor(public signalService: SignalService) {
     // Initialize form fields with the current signal values
     this.firstName = this.signalService.firstName();
@@ -23,6 +30,10 @@ export class HomeComponent {
   // Method to update values
   updateValues() {
     this.signalService.updateValues(this.firstName, this.lastName, this.age);
+    this.results = [
+      { property: 'Full Name', value: this.signalService.fullName() },
+      { property: 'Is Adult', value: this.signalService.isAdult().toString() }
+    ];
   }
 }
 

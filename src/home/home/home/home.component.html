@@ -1,21 +1,38 @@
 <app-navbar></app-navbar>
-<div>
-  <h1>Signals and Effects Demo</h1>
-  <form (ngSubmit)="updateValues()">
-    <div>
-      <label for="firstName">First Name:</label>
-      <input id="firstName" [(ngModel)]="firstName" name="firstName" required />
-    </div>
-    <div>
-      <label for="lastName">Last Name:</label>
-      <input id="lastName" [(ngModel)]="lastName" name="lastName" required />
-    </div>
-    <div>
-      <label for="age">Age:</label>
-      <input id="age" type="number" [(ngModel)]="age" name="age" required />
-    </div>
-    <button type="submit">Update Values</button>
-  </form>
-  <p>Full Name: {{ signalService.fullName() }}</p>
-  <p>Is Adult: {{ signalService.isAdult() }}</p>
+<div class="container">
+  <h2>Signals and Effects Demo</h2>
+  <div class="content">
+    <form (ngSubmit)="updateValues()" class="form-container">
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput id="firstName" [(ngModel)]="firstName" name="firstName" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput id="lastName" [(ngModel)]="lastName" name="lastName" required />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput id="age" type="number" [(ngModel)]="age" name="age" required />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Update Values</button>
+    </form>
+    
+    <mat-card class="results">
+      <table mat-table [dataSource]="results" class="mat-elevation-z8">
+        <ng-container matColumnDef="property">
+          <th mat-header-cell *matHeaderCellDef> Property </th>
+          <td mat-cell *matCellDef="let element"> {{element.property}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef> Value </th>
+          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card>
+  </div>
 </div>
