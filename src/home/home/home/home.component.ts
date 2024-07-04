@@ -13,28 +13,45 @@ export class HomeComponent {
   lastName: string;
   age: number;
 
-  results = [
-    { property: 'Full Name', value: '' },
-    { property: 'Is Adult', value: '' }
-  ];
-  displayedColumns: string[] = ['property', 'value'];
+  // Define the type of results as an object
+  results: { [key: string]: string } = {};
 
+  displayedColumns: string[] = [];
 
   constructor(public signalService: SignalService) {
     // Initialize form fields with the current signal values
     this.firstName = this.signalService.firstName();
     this.lastName = this.signalService.lastName();
     this.age = this.signalService.age();
+
+    // Initialize results with initial values
+    this.updateTable();
   }
 
-  // Method to update values
+  // Method to update values and table
   updateValues() {
     this.signalService.updateValues(this.firstName, this.lastName, this.age);
-    this.results = [
-      { property: 'Full Name', value: this.signalService.fullName() },
-      { property: 'Is Adult', value: this.signalService.isAdult().toString() }
-    ];
+
+    // Update local variables
+    this.firstName = this.signalService.firstName();
+    this.lastName = this.signalService.lastName();
+    this.age = this.signalService.age();
+
+    // Update results and displayedColumns
+    this.updateTable();
+  }
+
+  // Helper method to update results and displayedColumns
+  private updateTable() {
+    this.results = {
+      'First Name': this.firstName,
+      'Last Name': this.lastName,
+      'Full Name': this.signalService.fullName(),
+      'Age': this.age.toString(),
+      'Is Adult': this.signalService.isAdult().toString()
+    };
+
+    // Update displayedColumns with all property names
+    this.displayedColumns = Object.keys(this.results);
   }
 }
-
-
