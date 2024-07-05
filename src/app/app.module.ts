@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeModule } from '../home/home/home.module';
 import { SignalService } from '../services/signal.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   ],
   providers: [
     SignalService,
-    provideClientHydration(),
+    provideHttpClient(withFetch()),
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
