@@ -3,4 +3,6 @@ export interface User {
     lastName: string;
     age: number;
     fullName:string;
+    isAdult:boolean;
+   
 }

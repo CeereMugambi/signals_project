@@ -15,7 +15,7 @@
         <mat-label>Age</mat-label>
         <input matInput id="age" type="number" [(ngModel)]="newUser.age" name="age" required />
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Update Values</button>
+      <button mat-raised-button color="primary" type="submit">Add User</button>
     </form>
     
     <mat-card class="results">
@@ -47,9 +47,18 @@
         <!-- Is Adult Column -->
         <ng-container matColumnDef="isAdult">
           <th mat-header-cell *matHeaderCellDef> Is Adult </th>
-          <td mat-cell *matCellDef="let user"> {{ user.age >= 18 }} </td>
+          <td mat-cell *matCellDef="let user"> {{ user.age >= 18 ? 'True' : 'False' }} </td>
         </ng-container>
 
+        <!-- Delete Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let user">
+            <button mat-icon-button color="warn" (click)="removeUser(user)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
         <!-- Header row with dynamic columns -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <!-- Row definition -->

@@ -15,9 +15,10 @@ export class HomeComponent {
     lastName: '',
     age: 0,
     fullName:'',
+    isAdult:false,
   };
 
-  displayedColumns: string[] = ['firstName', 'lastName', 'fullName', 'age', 'isAdult'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'fullName', 'age', 'isAdult', 'actions'];
 
   constructor(public signalService: SignalService) {}
 
@@ -27,10 +28,15 @@ export class HomeComponent {
     this.signalService.addUser(); // Add user when values are updated
 
     // Clear input fields
-    this.newUser = { firstName: '', lastName: '', age: 0 , fullName:''};
+    this.newUser = { firstName: '', lastName: '', age: 0,fullName:'',isAdult:false};
   }
 
   get users(): User[] {
     return this.signalService.users();
   }
+  // Method to remove a user
+  removeUser(user: User) {
+    this.signalService.removeUser(user);
+  }
+
 }
