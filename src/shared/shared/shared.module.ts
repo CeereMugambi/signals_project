@@ -5,6 +5,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomeModule } from '../../home/home/home.module';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CommonModule,
     SharedRoutingModule,
     MatIconModule,
-    MatToolbarModule  
+    MatToolbarModule,
 
     
   ],

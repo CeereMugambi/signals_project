@@ -7,6 +7,7 @@ import { HomeModule } from '../home/home/home.module';
 import { SignalService } from '../services/signal.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { SharedModule } from '../shared/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
+    SharedModule
   ],
   providers: [
     SignalService,

@@ -7,7 +7,7 @@ import { AdultusersComponent } from './adultusers/adultusers.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'Users', component: UsersComponent },
-  { path: 'Adultusers', component: AdultusersComponent },
+  { path: 'adultusers', component: AdultusersComponent },
 
   
 ];

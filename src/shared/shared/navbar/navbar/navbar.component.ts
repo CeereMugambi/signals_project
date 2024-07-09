@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component ,Output,EventEmitter} from '@angular/core';
+import { SignalService } from '../../../../services/signal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,16 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  constructor() {
-  }
-  logout() {;
+  @Output() personIconClick = new EventEmitter<void>();
+
+  constructor(public signalService: SignalService) {}
+
+  onPersonIconClick() {
+    this.personIconClick.emit();
   }
  
-  isDropdownOpen = false;
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
-  
-  
-
 }

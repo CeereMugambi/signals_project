@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Signal } from '@angular/core';
 import { SignalService } from '../../../services/signal.service';
 import { User } from '../../../models/user.model';
 
@@ -20,7 +20,11 @@ export class HomeComponent {
 
   displayedColumns: string[] = ['firstName', 'lastName', 'fullName', 'age', 'isAdult', 'actions'];
 
-  constructor(public signalService: SignalService) {}
+  usersSignal: Signal<User[]> = this.signalService.users;
+
+  constructor(public signalService: SignalService) {
+    this.usersSignal = this.signalService.users;
+  }
 
   // Method to update values and add user
   updateValues() {
@@ -32,10 +36,11 @@ export class HomeComponent {
   }
 
   get users(): User[] {
-    return this.signalService.users();
+    return this.signalService.users ();
   }
   // Method to remove a user
   removeUser(user: User) {
     this.signalService.removeUser(user);
   }
+
 }

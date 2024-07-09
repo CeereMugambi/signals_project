@@ -35,7 +35,8 @@ import { AdultusersComponent } from './adultusers/adultusers.component';
     MatButtonModule,
     MatTableModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    SharedModule
   ],
   exports:[
     HomeComponent,
