@@ -1,0 +1,20 @@
+<mat-card class="adult-users">
+  <table mat-table [dataSource]="adults()" class="mat-elevation-z8">
+    <!-- Full Name Column -->
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef> Full Name </th>
+      <td mat-cell *matCellDef="let adult"> {{ adult.fullName }} </td>
+    </ng-container>
+
+    <!-- Age Column -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let adult"> {{ adult.age }} </td>
+    </ng-container>
+
+    <!-- Header row with dynamic columns -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- Row definition -->
+    <tr mat-row *matRowDef="let adult; columns: displayedColumns;"></tr>
+  </table>
+</mat-card>

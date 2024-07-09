@@ -38,5 +38,4 @@ export class HomeComponent {
   removeUser(user: User) {
     this.signalService.removeUser(user);
   }
-
 }

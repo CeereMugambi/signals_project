@@ -10,13 +10,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
+import { UsersComponent } from './users/users.component';
+import { AdultusersComponent } from './adultusers/adultusers.component';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    UsersComponent,
+    AdultusersComponent
   ],
   imports: [
     CommonModule,
@@ -29,10 +34,13 @@ import {MatIconModule} from '@angular/material/icon';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule
   ],
   exports:[
-    HomeComponent
+    HomeComponent,
+    UsersComponent,
+    AdultusersComponent
   ]
 })
 export class HomeModule { }
