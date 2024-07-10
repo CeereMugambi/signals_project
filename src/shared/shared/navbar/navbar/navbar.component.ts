@@ -7,12 +7,6 @@ import { SignalService } from '../../../../services/signal.service';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  @Output() personIconClick = new EventEmitter<void>();
-
   constructor(public signalService: SignalService) {}
-
-  onPersonIconClick() {
-    this.personIconClick.emit();
-  }
  
 }

@@ -1,30 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home/home.component';
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdultusersComponent } from './adultusers/adultusers.component';
+import { UsersComponent } from './users/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared/shared.module';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatIconModule} from '@angular/material/icon';
-import { UsersComponent } from '../../admin/admin/users/users.component';
-import { AdultusersComponent } from '../../admin/admin/adultusers/adultusers.component';
-import { AdminModule } from '../../admin/admin/admin.module';
-
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    AdultusersComponent,
+    UsersComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    AdminRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
@@ -35,11 +33,11 @@ import { AdminModule } from '../../admin/admin/admin.module';
     MatTableModule,
     MatIconModule,
     MatTabsModule,
-    SharedModule,
-    AdminModule
+    SharedModule
   ],
   exports:[
-    HomeComponent,
+    AdultusersComponent,
+    UsersComponent
   ]
 })
-export class HomeModule { }
+export class AdminModule { }
