@@ -12,15 +12,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
-import { UsersComponent } from '../../admin/admin/users/users.component';
-import { AdultusersComponent } from '../../admin/admin/adultusers/adultusers.component';
-import { AdminModule } from '../../admin/admin/admin.module';
+import { AdultusersComponent } from './adultusers/adultusers.component';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    AdultusersComponent
   ],
   imports: [
     CommonModule,
@@ -36,10 +35,11 @@ import { AdminModule } from '../../admin/admin/admin.module';
     MatIconModule,
     MatTabsModule,
     SharedModule,
-    AdminModule
+    
   ],
   exports:[
     HomeComponent,
+    AdultusersComponent
   ]
 })
 export class HomeModule { }
