@@ -11,6 +11,19 @@
       <th mat-header-cell *matHeaderCellDef> Age </th>
       <td mat-cell *matCellDef="let adult"> {{ adult.age }} </td>
     </ng-container>
+    
+    <!-- Verify Button Column -->
+  <ng-container matColumnDef="verify">
+    <th mat-header-cell *matHeaderCellDef> Verify </th>
+    <td mat-cell *matCellDef="let user">
+      <button mat-icon-button
+              (click)="verifyUser(user)"
+              [disabled]="isVerified(user)"
+              [ngClass]="{'verified': isVerified(user)}">
+        <mat-icon>done</mat-icon>
+      </button>
+    </td>
+  </ng-container>
 
     <!-- Header row with dynamic columns -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -65,6 +65,7 @@
             <tr mat-row *matRowDef="let user; columns: displayedColumns;"></tr>
           </table>
         </mat-card>
-      </div>
-      </div>
-      <app-adultusers [users]="usersSignal"></app-adultusers>
+        <app-adultusers [adultusers]="usersSignal" (verifiedUsersOutput)="handleVerifiedUsersOutput($event)"></app-adultusers>
+
+      </div> 
+    </div>

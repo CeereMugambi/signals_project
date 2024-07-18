@@ -13,4 +13,16 @@
   .mat-elevation-z8 {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.20);
   }
+  button.mat-icon-button.verified {
+    color: grey;
+  }
+  
+  button.mat-icon-button {
+    color: green;
+  }
+  
+  button.mat-icon-button:disabled {
+    color: grey;
+  }
+  
   

@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatIconModule} from '@angular/material/icon';
 import { AdultusersComponent } from './adultusers/adultusers.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -34,11 +35,13 @@ import { AdultusersComponent } from './adultusers/adultusers.component';
     MatTableModule,
     MatIconModule,
     MatTabsModule,
+    MatSnackBarModule,
     SharedModule,
     
   ],
   exports:[
     HomeComponent,
+    AdultusersComponent,
     AdultusersComponent
   ]
 })
